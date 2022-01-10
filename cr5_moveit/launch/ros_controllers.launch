@@ -1,6 +1,5 @@
 <?xml version="1.0"?>
 <launch>
-
   <!-- Load joint controller configurations from YAML file to parameter server -->
   <rosparam file="$(find cr5_moveit)/config/ros_controllers.yaml" command="load"/>
 

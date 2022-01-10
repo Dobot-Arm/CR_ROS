@@ -1,5 +1,5 @@
 controller_list:
-  - name: fake_arm_controller
+  - name: fake_manipulator_controller
     type: $(arg execution_type)
     joints:
       - joint1

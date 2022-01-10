@@ -82,7 +82,21 @@ source ~/.bashrc
 
     ![moveit显示](./moveit.gif)
 
-
+3. ## gazebo 仿真
+    * 使用如下命令启动 gazebo
+    ```
+    roslaunch dobot_gazebo gazebo.launch 
+    ```
+    * 同样，您可以使用MoveIt!控制gazebo里的仿真机器人
+    * 设置MoveIt!允许运动规划运行的节点,dobot类型需要对应 
+    ```
+    roslaunch cr5_moveit cr5_moveit_planning_execution.launch  sim:=True
+    ```
+    * 启动RViz的配置包括MoveIt!运动规划插件运行,dobot类型需要对应 
+    ```
+    roslaunch cr5_moveit moveit_rviz.launch config:=True
+    ```
+    * 鼠标将关节拖到任意的角度，点击 "Plan and Execute" 即可看到运行效果
 ## 4. 控制真实机械臂
 
 * **使用如下命令连接机械臂, robot_ip 为实际机械臂所对应的IP地址**

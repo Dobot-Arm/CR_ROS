@@ -14,7 +14,12 @@
 #include <dobot_bringup/cr5_robot.h>
 #include <sensor_msgs/JointState.h>
 #include <dobot_bringup/ToolVectorActual.h>
+#include <iostream>
+#include <string>
+#include <stdio.h>
+#include <stdlib.h>
 
+using namespace std;
 int main(int argc, char* argv[])
 {
     ros::init(argc, argv, "CR5Robot");
@@ -35,14 +40,17 @@ int main(int argc, char* argv[])
         dobot_bringup::ToolVectorActual tool_vector_actual_msg;
         ros::Publisher tool_vector_pub =
             private_node.advertise<dobot_bringup::ToolVectorActual>("/dobot_bringup/msg/ToolVectorActual", 100);
-
+        string z ="/";
+        string a = getenv("DOBOT_TYPE");
+        string b = "_robot/joint_controller/follow_joint_trajectory";
+        string ss =  z + a+ b ;
         for (uint32_t i = 0; i < 6; i++)
         {
             joint_state_msg.position.push_back(0.0);
             joint_state_msg.name.push_back(std::string("joint") + std::to_string(i + 1));
         }
 
-        CR5Robot robot(private_node, "/follow_joint_trajectory/follow_joint_trajectory");
+        CR5Robot robot(private_node, ss);
 
         double rate_vale = private_node.param("JointStatePublishRate", 10);
 

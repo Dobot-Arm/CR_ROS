@@ -83,7 +83,21 @@ source ~/.bashrc
 
     ![moveit display](./moveit.gif)
 
-
+3. ## Gazebo simulated
+    * Start Gazebo with the following command
+    ```
+    roslaunch dobot_gazebo gazebo.launch 
+    ```
+    * Again, you can use MoveIt!  Control the gazebo robots
+    * For setting up the MoveIt! nodes to allow motion planning run.The dobot type needs to correspond
+    ```
+    roslaunch cr5_moveit cr5_moveit_planning_execution.launch  sim:=True
+    ```
+    * For starting up RViz with a configuration including the MoveIt! Motion Planning plugin run.The dobot type needs to correspond
+    ```
+    roslaunch cr5_moveit moveit_rviz.launch config:=True
+    ```
+    * Drag the joint to any direction, then click "Plan and Excute" to see the result
 ## Controlling real robotic arm
 
 * **Connect the robotic arm with following command, and robot_ip is the IP address that the real arm locates**
