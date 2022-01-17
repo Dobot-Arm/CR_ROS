@@ -320,7 +320,7 @@ public:
 
     void realSendCmd(const char* cmd, uint32_t len)
     {
-        move_cmd_tcp_->tcpSend(cmd, strlen(cmd));
+        real_time_tcp_->tcpSend(cmd, strlen(cmd));
     }
 
 private:
